@@ -35,8 +35,11 @@ public class FileChecker {
 		this.filenamefilter = filenamefilter;
 		this.directory =new File(directoryToCheck);
 		this.timer = new Timer(250, new ActionPerformed());
+	}
+	
+	// If the file checker is launched from the start we might miss the first files
+	public void startChecking() {
 		this.timer.start();
-		
 	}
 
 	public void addFileListener(FileListener fileListener) {

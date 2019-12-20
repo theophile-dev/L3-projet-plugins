@@ -4,16 +4,11 @@ public class App
 {
     public static void main( String[] args )
     {
-    	PrintFileName p = new PrintFileName();
-    	FileChecker f = new FileChecker("plugins", new DotClassFilter());
-    	f.addFileListener(p);
+    	PrintFileName printer = new PrintFileName();
+    	FileChecker fileChecker = new FileChecker("plugins", new DotClassFilter());
+    	fileChecker.addFileListener(printer);
+    	new Editor("amazing default text", fileChecker);
+
     	
-    	while(true) {
-    		try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-    	}
     }
 }
