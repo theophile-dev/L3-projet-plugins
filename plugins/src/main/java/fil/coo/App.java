@@ -1,13 +1,19 @@
 package fil.coo;
 
-/**
- * Hello world!
- *
- */
 public class App 
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+    	PrintFileName p = new PrintFileName();
+    	FileChecker f = new FileChecker("plugins", new DotClassFilter());
+    	f.addFileListener(p);
+    	
+    	while(true) {
+    		try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+    	}
     }
 }

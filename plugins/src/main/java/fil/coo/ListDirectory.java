@@ -4,13 +4,15 @@ import java.io.File;
 import java.io.FilenameFilter;
 
 public class ListDirectory {
+	
 	private File directory;
 
 	public ListDirectory(String path) {
 		this.directory = new File(path);
+
 	}
 
-	public String[] ListStartingByC() {
+	public String[] listStartingByC() {
 		return this.directory.list(new FilenameFilter() {
 			@Override
 			public boolean accept(File dir, String name) {
@@ -18,8 +20,12 @@ public class ListDirectory {
 			}
 		});
 	}
+	
+	public String[] listAll() {
+		return this.directory.list();
+	}
 
-	public String[] ListClassFile() {
+	public String[] listClassFile() {
 		return this.directory.list(new FilenameFilter() {
 			@Override
 			public boolean accept(File dir, String name) {
@@ -27,5 +33,4 @@ public class ListDirectory {
 			}
 		});
 	}
-
 }
